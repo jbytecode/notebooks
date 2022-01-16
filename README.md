@@ -23,6 +23,9 @@ Newton's method for minimizing multivariate functions
 
 An example of transportation problem in Julia
 
+## shortestpath.ipynb
+
+An example of linear programming solution for a shortest path problem
 
 
 
