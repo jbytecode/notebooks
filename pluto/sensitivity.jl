@@ -24,7 +24,9 @@ using GLPK
 @bind b1 html"<input type=range min=10 max=500>"
 
 # ╔═╡ ab53c557-63a8-445b-ab5a-635db3484a5d
-@bind b2 html"<input type=range min=10 max=500>"
+@bind b2 html"""
+<input type=range min=10 max=500 id=slide_b2>
+"""
 
 # ╔═╡ 6f14e274-580d-418a-9e09-f80bbc665d1d
 md"""
@@ -73,7 +75,7 @@ PLUTO_MANIFEST_TOML_CONTENTS = """
 
 julia_version = "1.9.0-DEV"
 manifest_format = "2.0"
-project_hash = "528b50905e19117a4f374a67b14feafc0690fbd2"
+project_hash = "a497fae47d6b8609f284b7d4078899bf7c8b3d66"
 
 [[deps.ArgTools]]
 uuid = "0dad84c5-d112-42e6-8d28-ef12dabb789f"
