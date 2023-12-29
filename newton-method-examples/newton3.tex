@@ -1,0 +1,127 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{margin=1.5cm}
+\begin{document}
+\subsubsection{Initials}
+Function:
+\begin{equation}
+\left( 3 + w \right)^{2} + \left( 9 + x \right)^{2} + \left( -2 + y \right)^{2}
+\end{equation}
+
+Gradient Vector:
+\begin{equation}
+\left[
+\begin{array}{c}
+2 \left( 9 + x \right) \\
+2 \left( -2 + y \right) \\
+2 \left( 3 + w \right) \\
+\end{array}
+\right]
+\end{equation}
+
+Hession Matrix:
+\begin{equation}
+\left[
+\begin{array}{ccc}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+\end{array}
+\right]
+\end{equation}
+
+Start Value:
+(w => 0.0, y => 0.0, x => 1.0)
+Function at point:
+113.0
+\subsubsection{Iteration 1}
+Gradient at (w => 0.0, y => 0.0, x => 1.0)
+\begin{equation}
+\left[
+\begin{array}{c}
+20 \\
+-4 \\
+6 \\
+\end{array}
+\right]
+\end{equation}
+
+Hessian at (w => 0.0, y => 0.0, x => 1.0)
+\begin{equation}
+\left[
+\begin{array}{ccc}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+\end{array}
+\right]
+\end{equation}
+
+Inverse of Hessian
+\begin{equation}
+\left[
+\begin{array}{ccc}
+0.5 & 0 & 0 \\
+0 & 0.5 & 0 \\
+0 & 0 & 0.5 \\
+\end{array}
+\right]
+\end{equation}
+
+(w => -3.0, y => 2.0, x => -9.0)
+Function at point:
+\begin{equation}
+0
+\end{equation}
+
+Diff of function values between two iterations:
+\begin{equation}
+113
+\end{equation}
+
+\subsubsection{Iteration 2}
+Gradient at (w => -3.0, y => 2.0, x => -9.0)
+\begin{equation}
+\left[
+\begin{array}{c}
+0 \\
+0 \\
+0 \\
+\end{array}
+\right]
+\end{equation}
+
+Hessian at (w => -3.0, y => 2.0, x => -9.0)
+\begin{equation}
+\left[
+\begin{array}{ccc}
+2 & 0 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 2 \\
+\end{array}
+\right]
+\end{equation}
+
+Inverse of Hessian
+\begin{equation}
+\left[
+\begin{array}{ccc}
+0.5 & 0 & 0 \\
+0 & 0.5 & 0 \\
+0 & 0 & 0.5 \\
+\end{array}
+\right]
+\end{equation}
+
+(w => -3.0, y => 2.0, x => -9.0)
+Function at point:
+\begin{equation}
+0
+\end{equation}
+
+Diff of function values between two iterations:
+\begin{equation}
+0
+\end{equation}
+
+\end{document}
