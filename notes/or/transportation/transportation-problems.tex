@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{float}
+\usepackage{geometry}
+
+\geometry{
+left=2cm,
+top=2cm,
+right=2cm,
+bottom=2cm
+}
+
+
+\begin{document}
+
+\title{Transportation Problem Examples}
+\author{Mehmet Hakan Satman (Ph.D.)}
+\maketitle
+\tableofcontents
+
+\section{Transportation Problem 1}
+\subsection{The Problem}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & $D_3$ & Supply \\
+\hline
+$S_1$ & 10.0 & 20.0 & 15.0 & 60.0\\
+$S_2$ & 22.0 & 9.0 & 21.0 & 60.0\\
+\hline
+Demand & 30.0 & 40.0 & 50.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{}
+\end{table}
+
+\subsection{The Solution}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & $D_3$ & Supply \\
+\hline
+$S_1$ & 10.0 \tiny{(30.0)} & 20.0 & 15.0 \tiny{(30.0)} & 60.0\\
+$S_2$ & 22.0 & 9.0 \tiny{(40.0)} & 21.0 \tiny{(20.0)} & 60.0\\
+\hline
+Demand & 30.0 & 40.0 & 50.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{Total cost: 1530.0}
+\end{table}
+
+
+\section{Transportation Problem 2}
+
+\subsection{The Problem}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & $D_3$ & $D_4$ & Supply \\
+\hline
+$S_1$ & 94.0 & 23.0 & 57.0 & 66.0 & 88.0\\
+$S_2$ & 77.0 & 12.0 & 59.0 & 27.0 & 68.0\\
+\hline
+Demand & 13.0 & 81.0 & 70.0 & 48.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{Problem 1}
+\end{table}
+
+\subsection{The Solution}
+
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & $D_3$ & $D_4$ & Supply \\
+\hline
+$S_1$ & 94.0 & 23.0 \tiny{(61.0)} & 57.0 \tiny{(27.0)} & 66.0 & 88.0\\
+$S_2$ & 77.0 & 12.0 \tiny{(20.0)} & 59.0 & 27.0 \tiny{(48.0)} & 68.0\\
+$S_3$ & 0.0 \tiny{(13.0)} & 0.0 & 0.0 \tiny{(43.0)} & 0.0 & 56.0\\
+\hline
+Demand & 13.0 & 81.0 & 70.0 & 48.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{Total cost: 4478.0}
+\end{table}
+
+
+\section{Transportation Problem 3}
+\subsection{The Problem}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & Supply \\
+\hline
+$S_1$ & 10.0 & 20.0 & 60.0\\
+$S_2$ & 22.0 & 9.0 & 60.0\\
+$S_3$ & 10.0 & 30.0 & 30.0\\
+\hline
+Demand & 30.0 & 40.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{Problem}
+\end{table}
+
+\subsection{Initial Feasible Solution with North-West Corner}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & $D_3$ & Supply \\
+\hline
+$S_1$ & 10.0 \tiny{(30.0)} & 20.0 \tiny{(30.0)} & 0.0 & 60.0\\
+$S_2$ & 22.0 & 9.0 \tiny{(10.0)} & 0.0 \tiny{(50.0)} & 60.0\\
+$S_3$ & 10.0 & 30.0 & 0.0 \tiny{(30.0)} & 30.0\\
+\hline
+Demand & 30.0 & 40.0 & 80.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{Total cost: 990.0}
+\end{table}
+
+
+\subsection{The Solution}
+\begin{table}[H]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+     & $D_1$ & $D_2$ & $D_3$ & Supply \\
+\hline
+$S_1$ & 10.0 & 20.0 & 0.0 \tiny{(60.0)} & 60.0\\
+$S_2$ & 22.0 & 9.0 \tiny{(40.0)} & 0.0 \tiny{(20.0)} & 60.0\\
+$S_3$ & 10.0 \tiny{(30.0)} & 30.0 & 0.0 & 30.0\\
+\hline
+Demand & 30.0 & 40.0 & 80.0 & \\
+\hline
+\end{tabular}
+\label{tbl:}
+\caption{Total cost: 660.0}
+\end{table}
+
+
+
+\end{document}
