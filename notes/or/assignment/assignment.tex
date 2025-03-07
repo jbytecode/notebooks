@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\geometry{
+left=2cm,
+top=2cm,
+right=2cm,
+bottom=2cm
+}
+
+
+\begin{document}
+
+\title{Assigment Problem Examples and Solutions}
+\author{Mehmet Hakan Satman (Ph.D.)}
+\maketitle
+\tableofcontents
+
+\section{Assignment Problem 1 and the Solution}
+\subsection{The Problem}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|}}
+\hline
+           &   Task 1  & Task 2  & Task 3 \\
+\hline
+Worker 1   &    10     &  17      &    9 \\
+\hline
+Worker 2   &    11     &  19      &   14 \\
+\hline 
+Worker 3   &    12     &  15     &    12 \\
+ \hline 
+\end{tabular}
+\label{}
+\caption{Times required to perform tasks by workers}
+\end{table}
+
+\subsection{The Mathematical Model}
+\begin{align*}
+\min z &  = 10 x_{11} + 17 x_{12} + 9 x_{13} + \ldots + 15 x_{32} + 12 x_{33} \\
+\text{Subject to:} & \\
+& x_{11} + x_{12} + x_{13} = 1 \\
+& x_{21} + x_{22} + x_{23} = 1 \\
+& x_{31} + x_{32} + x_{33} = 1 \\
+& x_{11} + x_{21} + x_{32} = 1 \\
+& x_{12} + x_{22} + x_{32} = 1 \\
+& x_{13} + x_{23} + x_{33} = 1 \\
+& x_{ij} \in \{0, 1\} \\
+& i = 1, 2, 3 \\
+& j = 1, 2, 3 \\
+\end{align*}
+
+\subsection{The Solution}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|}}
+\hline
+           &   Task 1  & Task 2  & Task 3 \\
+\hline
+Worker 1   &         &        &    \checkmark \\
+\hline
+Worker 2   &    \checkmark    &        &      \\
+\hline 
+Worker 3   &         &   \checkmark    &      \\
+ \hline 
+\end{tabular}
+\label{}
+\caption{Cost is 35}
+\end{table}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Assignment Problem 2 and the Solution}
+\subsection{The Problem}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|}}
+\hline
+           &   Task 1  & Task 2  & Task 3 & Task 4 \\
+\hline
+Worker 1   &    10     &  17      &    9     &   16\\
+\hline
+Worker 2   &    11     &  19      &   14    &    8\\
+\hline 
+Worker 3   &    12     &  15     &    12    &    7 \\
+ \hline 
+Worker 4   &    9     &  16     &    19    &    19 \\
+\hline 
+\end{tabular}
+\label{}
+\caption{Times required to perform tasks by workers}
+\end{table}
+
+
+
+
+
+\subsection{The Solution}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|}}
+\hline
+           &   Task 1  & Task 2  & Task 3 & Task 4 \\
+\hline
+Worker 1   &         &        &    \checkmark     &   \\
+\hline
+Worker 2   &         &        &       &    \checkmark \\
+\hline 
+Worker 3   &         &  \checkmark     &        &     \\
+ \hline 
+Worker 4   &    \checkmark     &       &        &     \\
+\hline 
+\end{tabular}
+\label{}
+\caption{Cost is 41}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Assignment Problem 3 and the Solution}
+
+\subsection{The Problem}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|}}
+\hline
+           &   Task 1  & Task 2  & Task 3 & Task 4  & Task 5\\
+\hline
+Worker 1   &    17     &  19      &    12     &   16  & 21\\
+\hline
+Worker 2   &    19     &  11      &   15    &    8  & 10\\
+\hline 
+Worker 3   &    9     &  15     &    12    &    7  & 14\\
+ \hline 
+Worker 4   &    16     &  13     &    22    &    19  & 22\\
+\hline 
+Worker 5   &    8     &  14     &    19    &    17  & 10\\
+\hline 
+\end{tabular}
+\label{}
+\caption{Times required to perform tasks by workers}
+\end{table}
+
+
+\subsection{The Solution}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|}}
+\hline
+           &   Task 1  & Task 2  & Task 3 & Task 4  & Task 5\\
+\hline
+Worker 1   &         &        &    \checkmark     &     & \\
+\hline
+Worker 2   &         &        &       &      & \checkmark\\
+\hline 
+Worker 3   &         &       &        &    \checkmark  & \\
+ \hline 
+Worker 4   &         &  \checkmark     &        &      & \\
+\hline 
+Worker 5   &    \checkmark     &       &        &      & \\
+\hline 
+\end{tabular}
+\label{}
+\caption{Cost is 50}
+\end{table}
+\end{document}
