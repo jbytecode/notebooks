@@ -1,0 +1,250 @@
+\documentclass{article}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{amsmath}
+
+\geometry{
+left=2cm,
+top=2cm,
+right=2cm,
+bottom=2cm
+}
+
+
+\begin{document}
+
+\title{Simplex Examples and Solutions}
+\author{Mehmet Hakan Satman (Ph.D.)}
+\maketitle
+\tableofcontents
+
+\section{Linear Programming Problem 1 and the Simplex Solution}
+\subsection{The Problem}
+\begin{align*}
+\max z & = 5 x_1 + 10 x_2 \\
+\text{Subject to:} & \\
+& 2 x_1 + 4 x_2 \le 640 \\
+& 6 x_1 + 2 x_2 \le 480 \\
+& x_1, x_2 \ge 0
+\end{align*}
+
+\subsection{Initial Table}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & Solution \\
+\hline
+z & -5.0 & -10.0 & -0.0 & -0.0 & 0.0\\
+ \hline
+x3 & 2.0 & 4.0 & 1.0 & 0.0 & 640.0\\
+ \hline
+x4 & 6.0 & 2.0 & 0.0 & 1.0 & 480.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{$x_3$ and $x_4$ are slack variables}
+\end{table}
+
+\subsection{Iteration 1}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & Solution \\
+\hline
+z & -0.0 & -0.0 & 2.5 & -0.0 & 1600.0\\
+ \hline
+x2 & 0.5 & 1.0 & 0.25 & 0.0 & 160.0\\
+ \hline
+x4 & 5.0 & 0.0 & -0.5 & 1.0 & 160.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{No entering variables, algorithm terminates}
+\end{table}
+
+\subsection{Solution Set}
+$$
+\text{Solution} = 
+\begin{Bmatrix}
+x_1 & = & 0 \\
+x_2 & = & 160 \\
+x_3 & = & 0 \\
+x_4 & = & 160 \\
+z_{\max}  & = & 1600
+\end{Bmatrix}
+$$
+
+\section{Linear Programming Problem 2 and the Simplex Solution}
+\subsection{The Problem}
+\begin{align*}
+\max z & = 5 x_1 + 6 x_2 + 4 x_3 \\
+\text{Subject to:} & \\
+& 2 x_1 + 4 x_2 + 6 x_3 \le 640 \\
+& 2 x_1 + 3 x_2 + x_3 \le 960 \\
+& x_1, x_2, x_3 \ge 0
+\end{align*}
+
+\subsection{Initial Table}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & Solution \\
+\hline
+z & -5.0 & -6.0 & -4.0 & -0.0 & -0.0 & 0.0\\
+ \hline
+x4 & 2.0 & 4.0 & 6.0 & 1.0 & 0.0 & 640.0\\
+ \hline
+x5 & 2.0 & 3.0 & 1.0 & 0.0 & 1.0 & 960.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{$x_4$ and $x_5$ are slack variables}
+\end{table}
+
+
+
+\subsection{Iteration 1}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & Solution \\
+\hline
+z & -2.0 & -0.0 & 5.0 & 1.5 & -0.0 & 960.0\\
+ \hline
+x2 & 0.5 & 1.0 & 1.5 & 0.25 & 0.0 & 160.0\\
+ \hline
+x5 & 0.5 & 0.0 & -3.5 & -0.75 & 1.0 & 480.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{}
+\end{table}
+
+
+
+\subsection{iteration 2}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & Solution \\
+\hline
+z & -0.0 & 4.0 & 11.0 & 2.5 & -0.0 & 1600.0\\
+ \hline
+x1 & 1.0 & 2.0 & 3.0 & 0.5 & 0.0 & 320.0\\
+ \hline
+x5 & 0.0 & -1.0 & -5.0 & -1.0 & 1.0 & 320.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{No entering variables, algorithm terminates}
+\end{table}
+
+\subsection{Solution Set}
+$$
+\text{Solution} = 
+\begin{Bmatrix}
+x_1 & = & 320 \\
+x_2 & = & 0 \\
+x_3 & = & 0 \\
+x_4 & = & 0 \\
+x_5 & = & 320 \\
+z_{\max}  & = & 1600
+\end{Bmatrix}
+$$
+
+
+
+\section{Linear Programming Problem 3 and the Simplex Solution}
+\subsection{The Problem}
+
+\begin{align*}
+\max z & = 3 x_1 + 5 x_2 + 4 x_3 \\
+\text{Subject to:} & \\
+& x_1 + 2 x_2 + 5 x_3 \le 120 \\
+& 3 x_1 + x_2 + 4 x_3 \le 240 \\
+& 2 x_1 + 2 x_2 + x_3 \le 360 \\
+& x_1, x_2, x_3 \ge 0\\
+\end{align*}
+
+\subsection{Initial Table}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & x6 & Solution \\
+\hline
+z & -3.0 & -5.0 & -4.0 & -0.0 & -0.0 & -0.0 & 0.0\\
+ \hline
+x4 & 1.0 & 2.0 & 5.0 & 1.0 & 0.0 & 0.0 & 120.0\\
+ \hline
+x5 & 3.0 & 1.0 & 4.0 & 0.0 & 1.0 & 0.0 & 240.0\\
+ \hline
+x6 & 2.0 & 2.0 & 1.0 & 0.0 & 0.0 & 1.0 & 360.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{$x_4$, $x_5$, $x_6$ are slack variables}
+\end{table}
+
+
+\subsection{Iteration 1}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & x6 & Solution \\
+\hline
+z & -0.5 & -0.0 & 8.5 & 2.5 & -0.0 & -0.0 & 300.0\\
+ \hline
+x2 & 0.5 & 1.0 & 2.5 & 0.5 & 0.0 & 0.0 & 60.0\\
+ \hline
+x5 & 2.5 & 0.0 & 1.5 & -0.5 & 1.0 & 0.0 & 180.0\\
+ \hline
+x6 & 1.0 & 0.0 & -4.0 & -1.0 & 0.0 & 1.0 & 240.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{}
+\end{table}
+
+\subsection{Iteration 2}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & x6 & Solution \\
+\hline
+z & -0.0 & -0.0 & 8.8 & 2.4 & 0.2 & -0.0 & 336.0\\
+ \hline
+x2 & 0.0 & 1.0 & 2.2 & 0.6 & -0.2 & 0.0 & 24.0\\
+ \hline
+x1 & 1.0 & 0.0 & 0.6 & -0.2 & 0.4 & 0.0 & 72.0\\
+ \hline
+x6 & 0.0 & 0.0 & -4.6 & -0.8 & -0.4 & 1.0 & 168.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{Final Table}
+\end{table}
+
+\subsection{Solution Set}
+$$
+\text{Solution} = 
+\begin{Bmatrix}
+x_1 & = & 72 \\
+x_2 & = & 24 \\
+x_3 & = & 0 \\
+x_4 & = & 0 \\
+x_5 & = & 0 \\
+x_6 & = & 168 \\
+z_{\max}  & = & 336
+\end{Bmatrix}
+$$
+
+
+\end{document}
