@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{float}
+
+\title{Primal and Dual Linear Programming Problems}
+\author{Mehmet Hakan Satman}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Primal to Dual Conversion}
+\subsection{The Primal Problem}
+$$
+\begin{aligned}
+    \max\quad & 5x + 3y + 2z \\
+    \text{Subject to} & \\
+    & 2x + 3y + z \leq 10 \\
+    & 4x + y + 2z \leq 12 \\
+    & x, y, z \geq 0 \\
+\end{aligned}
+$$
+
+\subsection{Standard Form of the Primal Problem}
+$$
+\begin{aligned}
+    \max\quad & 5x + 3y + 2z \\
+    \text{Subject to} & \\
+    & 2x + 3y + z + s_1 = 10 \\
+    & 4x + y + 2z + s_2 = 12 \\
+    & x, y, z, s_1, s_2 \geq 0 \\
+\end{aligned}
+$$
+
+\subsection{The Dual Problem}
+
+$$
+\begin{aligned}
+    \min\quad & 10y_1 + 12y_2 \\
+    \text{Subject to} & \\
+    & 2y_1 + 4y_2 \geq 5 \\
+    & 3y_1 + 1y_2 \geq 3 \\
+    & 1y_1 + 2y_2 \geq 2 \\
+    & y_1, y_2 \geq 0 \\
+\end{aligned}
+$$
+
+\section{Problem 1}
+\subsection{The Definition of the Primal Problem}
+
+$$ \begin{aligned}
+\max\quad & 3 x + 4 y\\
+\text{Subject to} \quad & 3 x + y \leq 24\\
+ & x + 4 y \leq 36\\
+ & x \geq 0\\
+ & y \geq 0\\
+\end{aligned} $$
+
+\subsection{Standard Form of the Primal Problem}
+
+$$ \begin{aligned}
+\max\quad & 3 x + 4 y\\
+\text{Subject to} \quad & 3 x + y + s_1 = 24\\
+ & x + 4 y + s_2 = 36\\
+ & x \geq 0\\
+ & y \geq 0\\
+ & s_1 \geq 0\\
+ & s_2 \geq 0\\
+\end{aligned} 
+$$
+
+\subsection{The Dual Problem}
+
+$$ \begin{aligned}
+\min\quad & 24 y_1 + 36 y_2\\
+\text{Subject to} \quad & 3 y_1 + y_2 \geq 3\\
+ & 1 y_1 + 4 y_2 \geq 4\\
+ & y_1 \geq 0\\
+ & y_2 \geq 0\\
+\end{aligned} $$
+
+\subsection{Last Simplex Tableau for the Primal Problem}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & Solution \\
+\hline
+z & -0.0 & -0.0 & 0.727 & 0.818 & 46.909\\
+ \hline
+x1 & 1.0 & 0.0 & 0.364 & -0.091 & 5.455\\
+ \hline
+x2 & 0.0 & 1.0 & -0.091 & 0.273 & 7.636\\
+ \hline 
+\end{tabular}
+\label{tab:last_simplex_tableau}
+\caption{Last Simplex Tableau for the Primal Problem}
+\end{table}
+
+
+\subsection{Last Simplex Tableau for the Dual Problem}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & x6 & Solution \\
+\hline
+z & -0.0 & -0.0 & -5.455 & -354.545 & -7.636 & -352.364 & 46.909\\
+ \hline
+x1 & 1.0 & 0.0 & -0.364 & 0.364 & 0.091 & -0.091 & 0.727\\
+ \hline
+x2 & 0.0 & 1.0 & 0.091 & -0.091 & -0.273 & 0.273 & 0.818\\
+ \hline 
+\end{tabular}
+\label{tab:last_simplex_tableau_dual}
+\caption{Last Simplex Tableau for the Dual Problem, Surplus: [3, 5]
+Artificial: [4, 6]
+Basic Variables: [1, 2]
+}
+\end{table}
+
+
+\section{Problem 2}
+\subsection{The Definition of the Primal Problem}
+$$ \begin{aligned}
+\min\quad & 2 x + 3 y + 4 z\\
+\text{Subject to} \quad & x + y + z \geq 12\\
+ & 2 x + 3 y + z \geq 24\\
+ & x \geq 0\\
+ & y \geq 0\\
+ & z \geq 0\\
+\end{aligned} $$
+
+\subsection{Standard Form of the Primal Problem}
+$$ \begin{aligned}
+\min\quad & 2 x + 3 y + 4 z\\
+\text{Subject to} \quad & x + y + z - s_1 = 12\\
+ & 2 x + 3 y + z - s_2 = 24\\
+ & x \geq 0\\
+ & y \geq 0\\
+ & z \geq 0\\
+ & s_1 \geq 0\\
+ & s_2 \geq 0\\
+\end{aligned}
+$$
+
+\subsection{The Dual Problem}
+$$ \begin{aligned}
+\max\quad & 12 y_1 + 24 y_2\\
+\text{Subject to} \quad & 1 y_1 + 2 y_2 \leq 2\\
+ & 1 y_1 + 3 y_2 \leq 3\\
+ & 1 y_1 + 1 y_2 \leq 4\\
+ & y_1 \geq 0\\
+ & y_2 \geq 0\\
+\end{aligned} $$
+
+\subsection{Last Simplex Tableau for the Primal Problem}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & x6 & x7 & Solution \\
+\hline
+z & -0.0 & -0.0 & -3.0 & -0.0 & -240.0 & -1.0 & -239.0 & 24.0\\
+ \hline
+x1 & 1.0 & 0.0 & 2.0 & -3.0 & 3.0 & 1.0 & -1.0 & 12.0\\
+ \hline
+x2 & 0.0 & 1.0 & -1.0 & 2.0 & -2.0 & -1.0 & 1.0 & 0.0\\
+ \hline 
+\end{tabular}
+\label{tab:last_simplex_tableau_primal}
+\caption{Last Simplex Tableau for the Primal Problem: 
+Surplus: [4, 6]
+Artificial: [5, 7]
+Basic Variables: [1, 2]}
+\end{table}
+
+\subsection{Last Simplex Tableau for the Dual Problem}
+\begin{table}[H]
+\centering
+\begin{tabular}{{|c|c|c|c|c|c|c|}}
+\hline
+  & x1 & x2 & x3 & x4 & x5 & Solution \\
+\hline
+z & -0.0 & -0.0 & 12.0 & -0.0 & -0.0 & 24.0\\
+ \hline
+x2 & 0.5 & 1.0 & 0.5 & 0.0 & 0.0 & 1.0\\
+ \hline
+x4 & -0.5 & 0.0 & -1.5 & 1.0 & 0.0 & 0.0\\
+ \hline
+x5 & 0.5 & 0.0 & -0.5 & 0.0 & 1.0 & 3.0\\
+ \hline 
+\end{tabular}
+\label{}
+\caption{Last Simplex Tableau for the Dual Problem:
+Slack: [3, 4, 5]
+Basic Variables: [2, 4, 5]
+}
+\end{table}
+
+
+
+\end{document}
