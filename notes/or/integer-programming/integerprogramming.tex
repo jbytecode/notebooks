@@ -130,7 +130,23 @@ $$
 $$
 
 \noindent Here is the Julia solution using Operations Research package:
+
 \begin{verbatim}
+using JuMP, HiGHS
+model = Model(HiGHS.Optimizer)
+@variable(model, x[1:5], Bin)
+@objective(model, Max, 200x[1] + 250x[2] + 150x[3] + 180x[4] + 160x[5])
+@constraint(model, 50x[1] + 60x[2] + 40x[3] + 30x[4] + 20x[5] <= 150)
+@constraint(model, 20x[1] + 30x[2] + 10x[3] + 40x[4] + 50x[5] <= 100)
+@constraint(model, 30x[1] + 20x[2] + 50x[3] + 30x[4] + 40x[5] <= 120)
+optimize!(model)
+println(value.(x))
+\end{verbatim}
+
+\noindent The output:
+
+\begin{verbatim}
+[1.0, 1.0, 0.0, 1.0, 0.0]
 \end{verbatim}
 
 \end{document}
