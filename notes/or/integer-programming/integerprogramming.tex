@@ -149,4 +149,77 @@ println(value.(x))
 [1.0, 1.0, 0.0, 1.0, 0.0]
 \end{verbatim}
 
+
+
+\section{The Assignment Problem}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+         & Task 1 & Task 2 & Task 3 & Task 4 \\
+\hline
+    Worker 1 &   9    &   2    &   7    &   8    \\
+\hline
+    Worker 2 &   6    &   4    &   3    &   7    \\
+\hline
+    Worker 3 &   5    &   8    &   1    &   8    \\
+\hline
+    Worker 4 &   7    &   6    &   9    &   4    \\
+\hline
+\end{tabular}
+\caption{Assignment problem cost matrix}
+\end{table}
+
+We have 4 workers and 4 tasks. The cost of assigning each worker to each task is given in the table above.
+We want to assign each worker to exactly one task such that the total cost is minimized.
+
+$$
+\begin{aligned}
+\text{Minimize } & Z = 9x_{11} + 2x_{12} + 7x_{13} + 8x_{14} + 6x_{21} + \ldots + 9x_{43} + 4x_{44} \\
+\text{Subject to } & \\
+& x_{11} + x_{12} + x_{13} + x_{14} = 1 \quad \text{(Worker 1 assigned to one task)} \\     
+& x_{21} + x_{22} + x_{23} + x_{24} = 1 \quad \text{(Worker 2 assigned to one task)} \\
+& x_{31} + x_{32} + x_{33} + x_{34} = 1 \quad \text{(Worker 3 assigned to one task)} \\ 
+& x_{41} + x_{42} + x_{43} + x_{44} = 1 \quad \text{(Worker 4 assigned to one task)} \\
+& x_{11} + x_{21} + x_{31} + x_{41} = 1 \quad \text{(Task 1 assigned to one worker)} \\
+& x_{12} + x_{22} + x_{32} + x_{42} = 1 \quad \text{(Task 2 assigned to one worker)} \\
+& x_{13} + x_{23} + x_{33} + x_{43} = 1 \quad \text{(Task 3 assigned to one worker)} \\ 
+& x_{14} + x_{24} + x_{34} + x_{44} = 1 \quad \text{(Task 4 assigned to one worker)} \\
+& x_{ij} \in \{0, 1\} \quad \text{for } i, j = 1, 2, 3, 4
+\end{aligned}
+$$
+
+\noindent Here is the Julia solution using Operations Research package:
+
+\begin{verbatim}
+using OperationsResearchModels
+costs = [9 2 7 8; 6 4 3 7; 5 8 1 8; 7 6 9 4]
+problem = AssignmentProblem(costs)
+result = solve(problem)
+\end{verbatim}
+
+\noindent The output:
+
+\begin{verbatim}
+julia> result.cost
+13.0
+
+julia> result.solution
+4×4 Matrix{Float64}:
+  0.0  1.0   0.0  0.0
+  1.0  0.0  -0.0  0.0
+  0.0  0.0   1.0  0.0
+ -0.0  0.0   0.0  1.0
+\end{verbatim}
+
+\noindent This means:
+
+\begin{itemize}
+\item Worker 1 is assigned to Task 2
+\item Worker 2 is assigned to Task 1
+\item Worker 3 is assigned to Task 3
+\item Worker 4 is assigned to Task 4
+\end{itemize}
+
 \end{document}
