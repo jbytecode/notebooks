@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+
+\title{Integer Programming}
+\author{Mehmet Hakan Satman (Ph.D.)}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{The Knapsack Problem}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+ Items   &  1  & 2  &  3  &  4 & 5 & 6 \\ 
+ \hline
+Weight  &  2  & 3  & 4  & 5 & 9 & 7 \\ 
+\hline
+Value   &  3  & 4  & 5  & 6 & 10 & 8 \\ 
+\hline
+\end{tabular}
+\caption{Knapsack problem data}
+\end{table}
+
+The capacity of the knapsack is 15 kg. 
+We want to maximize the total value of the items in the knapsack without exceeding its capacity.
+
+$$
+\begin{aligned}
+\text{Maximize } & Z = 3x_1 + 4x_2 + 5x_3 + 6x_4 + 10x_5 + 8x_6 \\
+\text{Subject to } & \\
+& 2x_1 + 3x_2 + 4x_3 + 5x_4 + 9x_5 + 7x_6 \leq 15 \\
+& x_i \in \{0, 1\} \quad \text{for } i = 1, 2, \ldots, 6
+\end{aligned}
+$$
+
+\noindent Now, suppose that the item 3 and item 4 are related, meaning that if we include item 3 in the knapsack, 
+we must also include item 4 (If we include item 4, we must also include item 3). This can be modeled with the following constraint:
+
+$$
+\begin{aligned}
+\text{Maximize } & Z = 3x_1 + 4x_2 + 5x_3 + 6x_4 + 10x_5 + 8x_6 \\
+\text{Subject to } & \\
+& 2x_1 + 3x_2 + 4x_3 + 5x_4 + 9x_5 + 7x_6 \leq 15 \\
+& x_3 = x_4 \\
+& x_i \in \{0, 1\} \quad \text{for } i = 1, 2, \ldots, 6
+\end{aligned}
+$$
+
+\noindent Here is the Julia solution using Operations Research package:
+
+\begin{verbatim}
+using OperationsResearchModels 
+values = [3, 4, 5, 6, 10, 8]
+weights = [2, 3, 4, 5, 9, 7]
+capacity = 15
+problem = KnapsackProblem(values, weights, capacity)
+result = solve(problem)
+\end{verbatim}
+
+
+\noindent The output: 
+
+
+\begin{verbatim}
+julia> result.objective
+18.0
+
+julia> result.selected
+6-element Vector{Bool}:
+ 1
+ 1
+ 1
+ 1
+ 0
+ 0
+
+\end{verbatim}
+
+
+
+\section{Project Selection Problem}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Project & Year 1 & Year 2 & Year 3 & Return \\
+\hline
+  1     &  50    &   20   &   30   &  200   \\
+\hline
+  2     &  60    &   30   &   20   &  250   \\
+\hline
+  3     &  40    &   10   &   50   &  150   \\
+\hline
+  4     &  30    &   40   &   30   &  180   \\
+\hline
+    5     &  20    &   50   &   40   &  160   \\
+\hline
+Budget & 150    &  100   &  120   &        \\
+\hline
+\end{tabular}
+\caption{Project selection data}
+\end{table}
+
+Project 1 requires 50 units of resource in year 1, 20 units in year 2, and 30 units in year 3.
+When the project is completed, it returns 200 units. 
+First year bagget is 150 units, second year budget is 100 units, and third year budget is 120 units.
+We want to select projects to maximize the total return without exceeding the yearly budgets.
+
+
+$$
+\begin{aligned}
+\text{Maximize } & Z = 200x_1 + 250x_2 + 150x_3 + 180x_4 + 160x_5 \\
+\text{Subject to } & \\
+& 50x_1 + 60x_2 + 40x_3 + 30x_4 + 20x_5 \leq 150 \quad \text{(Year 1 Budget)} \\
+& 20x_1 + 30x_2 + 10x_3 + 40x_4 + 50x_5 \leq 100 \quad \text{(Year 2 Budget)} \\
+& 30x_1 + 20x_2 + 50x_3 + 30x_4 + 40x_5 \leq 120 \quad \text{(Year 3 Budget)} \\
+& x_i \in \{0, 1\} \quad \text{for } i = 1, 2, \ldots, 5
+\end{aligned}
+$$
+
+\noindent Here is the Julia solution using Operations Research package:
+\begin{verbatim}
+\end{verbatim}
+
+\end{document}
