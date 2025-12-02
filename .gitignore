@@ -24,4 +24,7 @@ docs/site/
 Manifest.toml
 
 .*
-
+*.aux
+*.log
+*.out
+*.toc
