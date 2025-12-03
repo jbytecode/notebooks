@@ -509,4 +509,114 @@ $$
 1 \rightarrow 3 \rightarrow 7
 $$
 
+
+
+\section{Switching Constraints}
+
+The firm produces 2 types of products, Product A and Product B. 
+The production requires machines (in hours) and labor (in hours) as resources.
+Two different machines are used for packaging the products.
+Only one packaging machine should be selected.
+The production data is given in the table below:
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+         &  Product A & Product B & Capacity \\ 
+\hline
+Labor    &      7     &    8      &  5600 \\
+\hline 
+Machine 1 &      2     &    3      &  2000 \\
+\hline 
+Machine 2 &      4     &    2      &  2400 \\
+\hline
+Profit   &     30     &   40      &       \\
+\hline
+\end{tabular}
+\caption{Production data}
+\end{table}
+
+The firm wants to determine the production quantities of Product A and Product B to maximize profit 
+while adhering to resource constraints and selecting only one packaging machine.
+
+Let's define the decision variables:
+
+$$
+x_A = \text{production quantity of Product A}
+$$
+
+$$
+x_B = \text{production quantity of Product B}
+$$
+
+$$
+y = \begin{cases}
+1 & \text{if Machine 1 is selected} \\
+0 & \text{otherwise}
+\end{cases}
+$$
+
+The mathematical formulation of the problem is as follows:
+
+$$
+\begin{aligned}
+\text{Maximize } & Z = 30x_A + 40x_B \\
+\text{Subject to } & \\
+& 7x_A + 8x_B \leq 5600 \quad \text{(Labor constraint)} \\
+& 2x_A + 3x_B \leq 2000 + M \times (1 - y) \\ 
+& 4x_A + 2x_B \leq 2400 + M \times y \\
+& x_A, x_B \geq 0 \\
+& y \in \{0, 1\}
+\end{aligned}
+$$
+
+\noindent When $y = 1$, Machine 1 is selected, and the constraint for Machine 2 becomes non-restrictive due to the large value of $M$.
+When $y = 0$, Machine 2 is selected, and the constraint for Machine 1 becomes non-restrictive.
+
+
+\noindent Here is the Julia solution:
+
+\begin{verbatim}
+using JuMP, HiGHS
+
+bigM = 1e6
+
+model = Model(HiGHS.Optimizer)
+
+@variable(model, xa >= 0)
+@variable(model, xb >= 0)
+@variable(model, y, Bin)
+
+@objective(model, Max, 30*xa + 40*xb)
+
+@constraint(model, 7*xa + 8*xb <= 5600)
+@constraint(model, 2*xa + 3*xb <= 2000 + bigM * (1-y))
+@constraint(model, 4*xa + 2*xb <= 2400 + bigM * y)
+
+optimize!(model)
+
+println("Optimal value of xa: ", value(xa))
+println("Optimal value of xb: ", value(xb))
+println("Optimal value of y: ", value(y))
+println("Optimal objective value: ", objective_value(model))
+println("Solver status: ", termination_status(model))
+\end{verbatim}
+
+
+\noindent The output:
+
+\begin{verbatim}
+Optimal value of xa: 0.0
+Optimal value of xb: 700.0
+Optimal value of y: -0.0
+Optimal objective value: 28000.0
+Solver status: OPTIMAL
+\end{verbatim}
+
+\noindent As we see from the output, Machine 2 is selected (y = 0), 
+and the optimal production quantities are 0 for Product A and 700 for Product B, 
+resulting in a maximum profit of 28000.
+
+
 \end{document}
