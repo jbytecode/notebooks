@@ -2,30 +2,10 @@
 
 My Jupyter notebooks for some code snippets.
 
-## assignment.ipynb
+The subjects are classical Operations Research content.
 
-Julia example for an assignment problem
+Suitable for courses Operations Research, Quantitative Techniques, and Optimization.
 
-## bisection-method.ipynb
-
-Bisection method
-
-## lad.ipynb
-
-Least absolute deviations regression estimator (Linear Programming)
-
-## newton-multiple.ipynb
-
-Newton's method for minimizing multivariate functions
-
-
-## transportation.ipynb
-
-An example of transportation problem in Julia
-
-## shortestpath.ipynb
-
-An example of linear programming solution for a shortest path problem
 
 
 
